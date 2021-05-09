@@ -1,0 +1,31 @@
+sudo systemctl restart asterisk
+
+Enable asterisk service to start on system  boot:
+
+sudo systemctl enable asterisk
+
+Check service status to see if it is running.
+
+$ systemctl status asterisk
+● asterisk.service - LSB: Asterisk PBX
+     Loaded: loaded (/etc/init.d/asterisk; generated)
+     Active: active (running) since Fri 2020-08-14 12:04:41 CEST; 9s ago
+       Docs: man:systemd-sysv-generator(8)
+      Tasks: 82 (limit: 4567)
+     Memory: 44.6M
+     CGroup: /system.slice/asterisk.service
+             └─54142 /usr/sbin/asterisk -U asterisk -G asterisk
+
+Verify you can connect to Asterisk Command Line interface.
+
+$ sudo asterisk -rvv
+ Asterisk 18.1.1, Copyright (C) 1999 - 2018, Digium, Inc. and others.
+ Created by Mark Spencer markster@digium.com
+ Asterisk comes with ABSOLUTELY NO WARRANTY; type 'core show warranty' for details.
+ This is free software, with components licensed under the GNU General Public
+ License version 2 and other licenses; you are welcome to redistribute it under
+ certain conditions. Type 'core show license' for details.
+ Running as user 'asterisk'
+ Running under group 'asterisk'
+ Connected to Asterisk 18.1.1 currently running on asterisk (pid = 107650)
+ asterisk*CLI>
